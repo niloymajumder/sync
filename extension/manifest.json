@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Sync — YouTube to Spotify",
+  "version": "1.0.0",
+  "description": "Save music from YouTube or SoundCloud to your Spotify playlists with Sync.",
+  "permissions": ["activeTab", "scripting", "storage", "identity", "tabs"],
+  "host_permissions": ["https://*.youtube.com/*", "https://soundcloud.com/*", "https://api.spotify.com/*", "https://accounts.spotify.com/*"],
+  "action": { "default_popup": "popup.html", "default_icon": { "16": "icon16.png", "48": "icon48.png", "128": "icon128.png" } },
+  "icons": { "16": "icon16.png", "48": "icon48.png", "128": "icon128.png" }
+}

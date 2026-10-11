@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="icon48.png" alt="">
+      <div><strong>Sync</strong><span>Save music, simply.</span></div>
+    </div>
+    <div class="top-actions">
+      <button id="refreshBtn" class="icon-btn hidden" title="Refresh playlists" aria-label="Refresh playlists">↻</button>
+      <button id="settingsBtn" class="icon-btn" title="Settings" aria-label="Settings">•••</button>
+      <div id="settingsMenu" class="settings-menu hidden">
+        <button id="menuSettingsBtn">Spotify settings</button>
+        <button id="menuDetectBtn">Detect current song</button>
+        <button id="menuDisconnectBtn" class="danger hidden">Disconnect</button>
+      </div>
+    </div>
+  </header>
+
+  <section id="setup" class="view">
+    <div class="hero">
+      <span class="eyebrow">Welcome to Sync</span>
+      <h1>Your music,<br><em>in one place.</em></h1>
+      <p class="muted">Connect Spotify to save the song you are listening to in a few clicks.</p>
+    </div>
+    <div class="setup-card">
+      <label for="clientId">Spotify Client ID</label>
+      <input id="clientId" placeholder="Paste your Client ID" spellcheck="false">
+      <details>
+        <summary>Advanced settings</summary>
+        <label>Redirect URI <small>Click to copy</small></label>
+        <div class="copy" id="redirectUri"></div>
+        <label for="serverUrl">AI matcher URL <small>Optional</small></label>
+        <input id="serverUrl" placeholder="https://your-app.lovable.app" spellcheck="false">
+      </details>
+      <button id="connectBtn" class="primary">Connect Spotify <span>→</span></button>
+      <button id="logoutBtn" class="text-btn hidden">Disconnect Spotify</button>
+    </div>
+  </section>
+
+  <section id="main" class="view hidden">
+    <div class="section-heading">
+      <div><span class="eyebrow">Listening now</span><h2>Find a track</h2></div>
+      <button id="detectBtn" class="small-btn">Detect</button>
+    </div>
+    <div id="connectCard" class="connect-card hidden">
+      <div><strong>Connect Spotify to start syncing</strong><span>Search tracks, create playlists, and save music from this popup.</span></div>
+      <button id="homeConnectBtn" class="small-btn accent">Connect</button>
+    </div>
+    <div class="search-card">
+      <input id="inTitle" placeholder="Song or video title" spellcheck="false">
+      <div class="search-row">
+        <input id="inArtist" placeholder="Artist or channel" spellcheck="false">
+        <button id="matchBtn" class="match" title="Find on Spotify">Find</button>
+      </div>
+    </div>
+
+    <div id="state" class="state-card"><div class="spinner"></div><p>Finding your song…</p></div>
+
+    <div id="result" class="hidden">
+      <div class="track-card">
+        <img id="cover" alt="">
+        <div class="track-meta"><strong id="tName"></strong><span id="tArtist"></span></div>
+        <a id="openSp" target="_blank" rel="noreferrer" class="open-link" title="Open in Spotify">↗</a>
+      </div>
+      <p id="aiReason" class="hint"></p>
+
+      <div class="section-heading playlist-heading">
+        <div><span class="eyebrow">Destination</span><h2>Save to playlist</h2></div>
+        <button id="createBtn" class="small-btn accent">＋ New playlist</button>
+      </div>
+      <div id="createPanel" class="create-panel hidden">
+        <input id="playlistName" placeholder="Playlist name" maxlength="100">
+        <input id="playlistDescription" placeholder="Description (optional)" maxlength="300">
+        <div class="button-row"><button id="cancelCreateBtn" class="small-btn">Cancel</button><button id="savePlaylistBtn" class="small-btn accent">Create & add</button></div>
+      </div>
+      <div class="filter-wrap"><span>⌕</span><input id="filter" placeholder="Search playlists"></div>
+      <ul id="playlists"></ul>
+    </div>
+
+    <div id="recentSection" class="recent-section hidden">
+      <div class="section-heading"><div><span class="eyebrow">Your library</span><h2>Recent tracks</h2></div><button id="clearRecentBtn" class="text-btn">Clear</button></div>
+      <ul id="recent"></ul>
+    </div>
+  </section>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
