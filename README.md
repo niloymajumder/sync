@@ -2,6 +2,8 @@
 
 > Move music at the speed of listening.
 
+![Sync — move music at the speed of listening](./public/Products-03.png)
+
 Sync is a lightweight Chrome extension for saving music discovered on YouTube and SoundCloud to Spotify playlists. It detects the song in the active tab, finds the closest Spotify match, and lets you add it to an existing playlist or create a new one without interrupting your listening.
 
 **Landing page:** [sync GitHub project](https://github.com/niloymajumder/sync)
